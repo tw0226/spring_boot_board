@@ -42,11 +42,11 @@ public class QuestionService {
                 Join<Question, SiteUser> u1 = q.join("author", JoinType.LEFT);
                 Join<Question, Answer> a = q.join("answerList", JoinType.LEFT);
                 Join<Answer, SiteUser> u2 = a.join("author", JoinType.LEFT);
-                return cb.or(cb.like(q.get("subject"), "%" + kw + "%"), // �젣紐� 
-                        cb.like(q.get("content"), "%" + kw + "%"),      // �궡�슜 
-                        cb.like(u1.get("username"), "%" + kw + "%"),    // 吏덈Ц �옉�꽦�옄 
-                        cb.like(a.get("content"), "%" + kw + "%"),      // �떟蹂� �궡�슜 
-                        cb.like(u2.get("username"), "%" + kw + "%"));   // �떟蹂� �옉�꽦�옄 
+                return cb.or(cb.like(q.get("subject"), "%" + kw + "%"), //  
+                        cb.like(q.get("content"), "%" + kw + "%"),      //  
+                        cb.like(u1.get("username"), "%" + kw + "%"),    //  
+                        cb.like(a.get("content"), "%" + kw + "%"),      //  
+                        cb.like(u2.get("username"), "%" + kw + "%"));   //  
             }
         };
     }

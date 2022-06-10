@@ -10,7 +10,7 @@ public class MainController {
     @RequestMapping("/sbb")
     @ResponseBody
     public String index() {
-        return "?•ˆ?…•?•˜?„¸?š” sbb?— ?˜¤?‹ ê²ƒì„ ?™˜?˜?•©?‹ˆ?‹¤.";
+        return "sbbì— ì˜¤ì‹  ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤";
     }
 
     @RequestMapping("/")

@@ -52,7 +52,7 @@ public class AnswerController {
     public String answerModify(AnswerForm answerForm, @PathVariable("id") Integer id, Principal principal) {
         AnswerDto answerDto = this.answerService.getAnswer(id);
         if (!answerDto.getAuthor().getUsername().equals(principal.getName())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "�닔�젙沅뚰븳�씠 �뾾�뒿�땲�떎.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "수정권한이 없습니다.");
         }
         answerForm.setContent(answerDto.getContent());
         return "answer_form";
@@ -67,7 +67,7 @@ public class AnswerController {
         }
         AnswerDto answerDto = this.answerService.getAnswer(id);
         if (!answerDto.getAuthor().getUsername().equals(principal.getName())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "�닔�젙沅뚰븳�씠 �뾾�뒿�땲�떎.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "수정권한이 없습니다.");
         }
         this.answerService.modify(answerDto, answerForm.getContent());
         return String.format("redirect:/question/detail/%s#answer_%s", 
@@ -79,7 +79,7 @@ public class AnswerController {
     public String answerDelete(Principal principal, @PathVariable("id") Integer id) {
         AnswerDto answerDto = this.answerService.getAnswer(id);
         if (!answerDto.getAuthor().getUsername().equals(principal.getName())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "�궘�젣沅뚰븳�씠 �뾾�뒿�땲�떎.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "삭제권한이 없습니다.");
         }
         this.answerService.delete(answerDto);
         return String.format("redirect:/question/detail/%s", answerDto.getQuestion().getId());

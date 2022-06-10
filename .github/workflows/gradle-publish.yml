@@ -39,10 +39,3 @@ jobs:
 
     - name: Test with Gradle # test application build
       run: ./gradlew test
-    
-    - name: Get Current Time
-      uses: actions/get-current-time@v1
-      id: current-time
-      with:
-        format: YYYY-MM-DDTHH:mm:ss
-        utcOffset: "+09:00" # 기준이 UTC 이므로 한국시간인 KST 로 맞추기 위해 9시간을 더해준다
